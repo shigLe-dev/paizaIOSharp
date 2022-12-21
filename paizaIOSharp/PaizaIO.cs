@@ -12,6 +12,20 @@ public static class PaizaIO
         client = new HttpClient();
     }
 
+    public static async Task<Result> RunAsync(string sourceCode, string language, string input = "")
+    {
+        return await Task.Run(() => { 
+            return Run(sourceCode, language, input);
+        });
+    }
+
+    public static Result Run(string sourceCode, string language, string input = "")
+    {
+        string id = CreateRunner(sourceCode, language, input);
+        while (GetStatus(id) != "completed"){}
+        return GetDetails(id);
+    }
+
     public static string CreateRunner(string sourceCode, string language, string input)
     {
         var content = new StringContent("", Encoding.UTF8, @"application/json");
