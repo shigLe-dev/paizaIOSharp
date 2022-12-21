@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paizaIOSharp", "paizaIOSharp\paizaIOSharp.csproj", "{5CD527E2-AEFD-4475-9443-8D8CB3BF0481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{9BC4D196-81A3-4B2A-8897-ECC3192D0109}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CD527E2-AEFD-4475-9443-8D8CB3BF0481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD527E2-AEFD-4475-9443-8D8CB3BF0481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD527E2-AEFD-4475-9443-8D8CB3BF0481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD527E2-AEFD-4475-9443-8D8CB3BF0481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC4D196-81A3-4B2A-8897-ECC3192D0109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC4D196-81A3-4B2A-8897-ECC3192D0109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC4D196-81A3-4B2A-8897-ECC3192D0109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC4D196-81A3-4B2A-8897-ECC3192D0109}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
