@@ -27,4 +27,31 @@ public static class PaizaIO
         var node = JsonNode.Parse(result.Content.ReadAsStringAsync().Result);
         return node?["status"]?.GetValue<string>() ?? "";
     }
+
+    public static Result GetDetails(string id)
+    {
+        var result = client.GetAsync($"http://api.paiza.io:80/runners/get_details?id={id}&api_key=guest").Result;
+        var node = JsonNode.Parse(result.Content.ReadAsStringAsync().Result);
+        var ret = new Result();
+
+        ret.id = node?["id"]?.GetValue<string>() ?? "";
+        ret.language = node?["language"]?.GetValue<string>() ?? "";
+        ret.note = node?["note"]?.GetValue<string>() ?? "";
+        ret.status = node?["status"]?.GetValue<string>() ?? "";
+        ret.buildStdOut = node?["build_stdout"]?.GetValue<string>() ?? "";
+        ret.buildStdError = node?["build_stderr"]?.GetValue<string>() ?? "";
+        ret.buildExitCode = node?["build_exit_code"]?.GetValue<int>() ?? 0;
+        ret.buildTime = node?["build_time"]?.GetValue<string>() ?? "";
+        ret.buildMemory = node?["build_memory"]?.GetValue<string>() ?? "";
+        ret.buildResult = node?["build_result"]?.GetValue<string>() ?? "";
+        ret.stdOut = node?["stdout"]?.GetValue<string>() ?? "";
+        ret.stdError = node?["stderr"]?.GetValue<string>() ?? "";
+        ret.exitCode = node?["exit_code"]?.GetValue<int>() ?? 0;
+        ret.time = node?["time"]?.GetValue<string>() ?? "";
+        ret.memory = node?["memory"]?.GetValue<int>() ?? 0;
+        ret.connections = node?["connections"]?.GetValue<int>() ?? 0;
+        ret.result = node?["result"]?.GetValue<string>() ?? "";
+
+        return ret;
+    }
 }

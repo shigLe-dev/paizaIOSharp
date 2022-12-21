@@ -1,6 +1,4 @@
-﻿using System.Text;
-using paizaIOSharp;
-using System.Text.Json.Nodes;
+﻿using paizaIOSharp;
 
 namespace Test;
 
@@ -8,6 +6,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine(PaizaIO.GetStatus(PaizaIO.CreateRunner("Console.WriteLine(\"aiueo\")", "csharp", "")));
+        string id = "";
+        Console.WriteLine(PaizaIO.GetStatus(id = PaizaIO.CreateRunner("print(\"aaaaa\")", "python3", "")));
+        Thread.Sleep(4000);
+        Console.WriteLine(PaizaIO.GetDetails(id).stdOut);
     }
 }
