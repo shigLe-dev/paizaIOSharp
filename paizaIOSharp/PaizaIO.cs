@@ -3,11 +3,11 @@ using System.Text.Json.Nodes;
 
 namespace paizaIOSharp;
 
-public static class paizaIO
+public static class PaizaIO
 {
     static HttpClient client;
 
-    static paizaIO()
+    static PaizaIO()
     {
         client = new HttpClient();
     }
