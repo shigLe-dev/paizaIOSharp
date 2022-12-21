@@ -20,4 +20,11 @@ public static class paizaIO
         var node = JsonNode.Parse(result.Content.ReadAsStringAsync().Result);
         return node?["id"]?.GetValue<string>() ?? "";
     }
+
+    public static string GetStatus(string id)
+    {
+        var result = client.GetAsync($"http://api.paiza.io:80/runners/get_status?id={id}&api_key=guest").Result;
+        var node = JsonNode.Parse(result.Content.ReadAsStringAsync().Result);
+        return node?["status"]?.GetValue<string>() ?? "";
+    }
 }

@@ -8,6 +8,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine(paizaIO.CreateRunner("Console.WriteLine(\"aiueo\")", "csharp", ""));
+        Console.WriteLine(paizaIO.GetStatus(paizaIO.CreateRunner("Console.WriteLine(\"aiueo\")", "csharp", "")));
     }
 }
