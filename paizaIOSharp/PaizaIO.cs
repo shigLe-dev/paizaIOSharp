@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Web;
+using System.Text;
 using System.Text.Json.Nodes;
 
 namespace paizaIOSharp;
@@ -28,6 +29,8 @@ public static class PaizaIO
 
     public static string CreateRunner(string sourceCode, string language, string input)
     {
+        sourceCode = Uri.EscapeDataString(sourceCode);
+        input = Uri.EscapeDataString(input);
         var content = new StringContent("", Encoding.UTF8, @"application/json");
         var uri = $"http://api.paiza.io:80/runners/create?source_code={sourceCode}&language={language}&input={input}&api_key=guest";
         var result = client.PostAsync(uri, content).Result;
@@ -56,7 +59,7 @@ public static class PaizaIO
         ret.buildStdError = node?["build_stderr"]?.GetValue<string>() ?? "";
         ret.buildExitCode = node?["build_exit_code"]?.GetValue<int>() ?? 0;
         ret.buildTime = node?["build_time"]?.GetValue<string>() ?? "";
-        ret.buildMemory = node?["build_memory"]?.GetValue<string>() ?? "";
+        ret.buildMemory = node?["build_memory"]?.GetValue<int>() ?? 0;
         ret.buildResult = node?["build_result"]?.GetValue<string>() ?? "";
         ret.stdOut = node?["stdout"]?.GetValue<string>() ?? "";
         ret.stdError = node?["stderr"]?.GetValue<string>() ?? "";
